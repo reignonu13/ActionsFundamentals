@@ -1,0 +1,32 @@
+name: Bug Report
+description: Create a report to help us improve
+title: "[BUG] "
+labels: ["bug", "triage"]
+assignees:
+  - reignonu13
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Thank you for taking the time to report a bug.
+        Please fill out this form as precisely as possible.
+        After submitting the issue, please add a comment with `/set-environment [Environment]` to specify the environment where the bug was encountered, replacing `[Environment]` with either `Production`, `Test`, or `Load-Test`.
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      description: Please select the environment where the bug was encountered. Remember to add a comment as instructed after submitting.
+      options:
+        - Production
+        - Test
+        - Load-Test
+    validations:
+      required: true
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, I confirm I've read and agree to the [Code of Conduct](CODE_OF_CONDUCT.md).
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
