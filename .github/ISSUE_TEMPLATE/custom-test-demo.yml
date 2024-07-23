@@ -1,21 +1,59 @@
-name: Workflow Dispatch Trigger
-description: Fill out this form to gather information for manually triggering the GitHub Actions workflow.
-title: "[Workflow Dispatch] - "
+name: Bug Report
+description: Create a report to help us improve
+title: "[BUG] "
+labels: ["bug", "triage"]
+assignees:
+  - team-lead
 body:
   - type: markdown
     attributes:
-      value: "## Please fill out this form to trigger a workflow dispatch event. After submitting, follow the instructions to manually trigger the workflow with the provided information."
+      value: |
+        ## Thank you for taking the time to report a bug.
+        Please fill out this form as precisely as possible.
+  - type: input
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear and concise description of what the bug is.
+      placeholder: e.g., The application crashed when I clicked on the 'Submit' button.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: How can we reproduce the issue?
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+    validations:
+      required: true
+  - type: input
+    id: expected-behavior
+    attributes:
+      label: Expected behavior
+      description: A clear and concise description of what you expected to happen.
+      placeholder: e.g., The application should navigate to the home screen.
+    validations:
+      required: true
   - type: dropdown
     id: environment
     attributes:
-      label: Environment to Deploy To
-      description: Select the environment where you want to deploy.
+      label: Environment
+      description: Please select the environment where the bug was encountered.
       options:
         - Production
         - Test
         - Load-Test
     validations:
       required: true
-  - type: markdown
+  - type: checkboxes
+    id: terms
     attributes:
-      value: "## Instructions for Manual Trigger\nAfter submitting this issue, go to the Actions tab, select the workflow, and use the **Run workflow** button with the information provided here."
+      label: Code of Conduct
+      description: By submitting this issue, I confirm I've read and agree to the [Code of Conduct](CODE_OF_CONDUCT.md).
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
