@@ -1,0 +1,22 @@
+name: Workflow Dispatch Trigger
+description: Fill out this form to gather information for manually triggering the GitHub Actions workflow.
+title: "[Workflow Dispatch] - Tigger Demo"
+body:
+  - type: markdown
+	attributes:
+	  value: "## Please fill out this form to trigger a workflow dispatch event. After submitting, follow the instructions to manually trigger the workflow with the provided information."
+  - type: dropdown
+	id: environment
+	attributes:
+	  label: Environment to Deploy To
+	  description: Select the environment where you want to deploy.
+	  options:
+		- Production
+		- Test
+		- Load-Test
+    required: true
+	validations:
+	  required: true
+  - type: markdown
+	attributes:
+	  value: "## Instructions for Manual Trigger\nAfter submitting this issue, go to the Actions tab, select the workflow, and use the **Run workflow** button with the information provided here."
